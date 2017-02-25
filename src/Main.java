@@ -356,34 +356,20 @@ public class Main {
      * @return
      */
     public List<Integer> findDisappearedNumbers(int[] nums) {
+
         List<Integer> list = new LinkedList<>();
-        Map<Integer,Integer> map = new HashMap<>();
-        int l = nums.length;
-        for(int i=0;i<l;i++){
-             map.put(nums[i],1);
+
+        //通过数字本身负代表是否已经有了
+        for (int i = 0; i < nums.length; i++) {
+            int absIndex = nums[i]>=0? nums[i]- 1:-nums[i]- 1;
+            nums[absIndex] = (nums[absIndex] > 0) ? -nums[absIndex] : nums[absIndex];
         }
-        int k = 1;
-        while(k<=nums.length) {
-            if (map.get(k) == null) {
-                list.add(k);
+        for (int index = 0; index < nums.length; index++) {
+            if (nums[index] > 0) {
+                list.add(index);
             }
-            k++;
         }
         return list;
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
