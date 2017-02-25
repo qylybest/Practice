@@ -287,4 +287,64 @@ public class Main {
         }
     }
 
+    /**
+     * Given a word, you need to judge whether the usage of capitals in it is right or not.
+
+     We define the usage of capitals in a word to be right when one of the following cases holds:
+
+     All letters in this word are capitals, like "USA".
+     All letters in this word are not capitals, like "leetcode".
+     Only the first letter in this word is capital if it has more than one letter, like "Google".
+     Otherwise, we define that this word doesn't use capitals in a right way.
+     * @param word
+     * @return
+     */
+    public boolean detectCapitalUse(String word) {
+        if(null == word || word.isEmpty()){
+            return false;
+        }
+        if(word.length() == 1){
+            return true;
+        }
+
+        int l = word.length();
+        boolean result = true;
+        if(word.charAt(0)>='A'&& word.charAt(0)<='Z' && word.charAt(1)>='A' && word.charAt(1)<='Z'){
+            int index = 2;
+            while(index < l){
+                if(word.charAt(index)<'A' || word.charAt(index)>'Z'){
+                    result = false;
+                    break;
+                }
+                index++;
+            }
+            return result;
+        }
+
+        if(word.charAt(0)>='A'&& word.charAt(0)<='Z' && word.charAt(1)>='a'&& word.charAt(1)<='z'){
+            int index = 2;
+            while(index < l){
+                if(word.charAt(index)<'a' || word.charAt(index)>'z'){
+                    result = false;
+                    break;
+                }
+                index++;
+            }
+            return result;
+        }
+
+        if(word.charAt(0)>='a'&&word.charAt(0)<='z'){
+            int index = 1;
+            while(index < l){
+                if(word.charAt(index)<'a' || word.charAt(index)>'z'){
+                    result = false;
+                    break;
+                }
+                index++;
+            }
+            return result;
+        }
+        return false;
+    }
+
 }
