@@ -372,4 +372,22 @@ public class Main {
         return list;
     }
 
+    /**
+     * Given an array of integers, every element appears twice except for one. Find that single one.
+
+     Note:
+     Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+     * @param nums
+     * @return
+     */
+    public int singleNumber(int[] nums) {
+        int r = 0;
+        //与0异或===自己，与1异或===取反
+        //与自己异或===0；
+        for(int n=0;n<nums.length;n++){
+            r ^= nums[n];
+        }
+        return r;
+    }
+
 }
