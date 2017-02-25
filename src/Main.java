@@ -2,6 +2,7 @@ import com.sun.tools.jdi.LinkedHashMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -151,6 +152,40 @@ public class Main {
             index++;
         }
         return result;
+    }
+
+    /**
+     * Write a program that outputs the string representation of numbers from 1 to n.
+     * But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”.
+     *For numbers which are multiples of both three and five output “FizzBuzz”.
+     * @param n
+     * @return
+     */
+    public List<String> fizzBuzz(int n) {
+        List<String> list = new LinkedList<>();
+        String s1 = "Fizz";
+        String s2 = "Buzz";
+        String s3 = "FizzBuzz";
+
+        if(n<1){
+            list = null;
+        }else{
+            for(int k = 1; k<=n; k++){
+                if(0==k%3 && 0!=k%5){
+                    list.add(s1);
+                }
+                if(0!=k%3 && 0==k%5){
+                    list.add(s2);
+                }
+                if(0==k%3 && 0==k%5){
+                    list.add(s3);
+                }
+                if(0!=k%3 && 0!=k%5){
+                    list.add(String.valueOf(k));
+                }
+            }
+        }
+        return list;
     }
 
 }
