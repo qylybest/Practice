@@ -420,8 +420,8 @@ public class Main {
         if(b == 0){
             return a;
         }
-        int r = a ^ b;
-        int j = (a & b)<<1;
+        int r = a ^ b; //无进位
+        int j = (a & b)<<1;//进位部分
         return getSum(r,j);
     }
 
