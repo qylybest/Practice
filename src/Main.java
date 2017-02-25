@@ -1,3 +1,5 @@
+import com.sun.tools.jdi.LinkedHashMap;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -106,5 +108,49 @@ public class Main {
         return strings;
     }
 
+    /**
+     * You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2.
+     * Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+     * The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2.
+     * If it does not exist, output -1 for this number.
+     * @param findNums
+     * @param nums
+     * @return
+     */
+    public int[] nextGreaterElement(int[] findNums, int[] nums) {
+        if(null == findNums || null == nums){
+            return new int[0];
+        }
+
+        int size = findNums.length;
+        int sizeB = nums.length;
+        int[] result = new int[size];
+
+        Map<Integer,Integer> map = new LinkedHashMap();
+        int index = 0;
+        for(int n:nums){
+            map.put(n,index);
+            index++;
+        }
+
+        List<Integer> list = new ArrayList<>();
+        index = 0;
+        for(int n: findNums){
+            result[index] = -1;
+            if(null != map.get(n)) {
+                int indexB = map.get(n);
+
+                while (indexB < sizeB) {
+                    if (nums[indexB] > n) {
+                        result[index] = nums[indexB];
+                        break;
+                    }
+                    indexB++;
+                }
+            }
+            index++;
+        }
+        return result;
+    }
 
 }
