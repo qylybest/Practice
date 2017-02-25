@@ -188,4 +188,24 @@ public class Main {
         return list;
     }
 
+    /**
+     * Write a function that takes a string as input and returns the string reversed.
+     * Example:
+     * Given s = "hello", return "olleh".
+     * @param s
+     * @return
+     */
+    public String reverseString(String s) {
+        if(null == s || s.isEmpty()){
+            return "";
+        }
+        int l = s.length();
+        StringBuilder sb = new StringBuilder();
+
+        for(int n=l-1;n>=0;n--){
+            sb.append(s.charAt(n));
+        }
+        return new String(sb);
+    }
+
 }
