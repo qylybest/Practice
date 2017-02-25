@@ -409,4 +409,20 @@ public class Main {
         return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
     }
 
+
+    /**
+     * Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+     * @param a
+     * @param b
+     * @return
+     */
+    public int getSum(int a, int b) {
+        if(b == 0){
+            return a;
+        }
+        int r = a ^ b;
+        int j = (a & b)<<1;
+        return getSum(r,j);
+    }
+
 }
