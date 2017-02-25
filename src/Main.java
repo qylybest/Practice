@@ -390,4 +390,27 @@ public class Main {
         return r;
     }
 
+
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+    }
+
+    /**
+     * Given a binary tree, find its maximum depth.
+     */
+    public int maxDepth(TreeNode root) {
+        if(null == root){
+            return 0;
+        }
+        if(null == root.left && null == root.right) {
+            return 1;
+        }
+        return 1+((maxDepth(root.left)>=maxDepth(root.right))?maxDepth(root.left):maxDepth(root.right));
+        }
+    }
+
 }
