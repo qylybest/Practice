@@ -208,4 +208,41 @@ public class Main {
         return new String(sb);
     }
 
+    /**
+     * You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
+     * Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).
+     * The island doesn't have "lakes" (water inside that isn't connected to the water around the island). One cell is a square with side length 1.
+     * The grid is rectangular, width and height don't exceed 100. Determine the perimeter of the island.
+     * @param grid
+     * @return
+     */
+    public int islandPerimeter(int[][] grid) {
+        int result = 0;
+        int d1 = grid.length;
+        if(d1 == 0){
+            return 0;
+        }
+        int d2 = grid[0].length;
+
+        for(int a=0;a<d1;a++){
+            result += grid[a][0]^0;
+            for(int b=0;b<d2-1;b++){
+                if(d2>1){
+                    result += grid[a][b]^grid[a][b+1];
+                }
+            }
+            result += grid[a][d2-1]^0;
+        }
+        for(int b=0;b<d2;b++){
+            result += grid[0][b]^0;
+            for(int a=0;a<d1-1;a++){
+                if(d1>1){
+                    result += grid[a][b]^grid[a+1][b];
+                }
+            }
+            result += grid[d1-1][b]^0;
+        }
+        return result;
+    }
+
 }
