@@ -245,4 +245,30 @@ public class Main {
         return result;
     }
 
+
+    /**
+     *Given a binary array, find the maximum number of consecutive 1s in this array.
+     * @param nums
+     * @return
+     */
+    public int findMaxConsecutiveOnes(int[] nums) {
+        if(null == nums || nums.length == 0){
+            return 0;
+        }
+
+        int largest = 0;
+        int r = 0;
+        for(int n:nums){
+            if(n==1){
+                r += 1;
+                if(r>largest){
+                    largest = r;
+                }
+            }else{
+                r = 0;
+            }
+        }
+        return largest;
+    }
+
 }
