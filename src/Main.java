@@ -406,11 +406,7 @@ public class Main {
         if(null == root){
             return 0;
         }
-        if(null == root.left && null == root.right) {
-            return 1;
-        }
-        return 1+((maxDepth(root.left)>=maxDepth(root.right))?maxDepth(root.left):maxDepth(root.right));
-        }
+        return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
     }
 
 }
