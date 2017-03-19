@@ -526,7 +526,7 @@ public class Main {
     /**
      * 通过对string和StringBuilder类进行1亿次测试得到：
      * 不清空变量，连续追加一亿次，StringBuilder会明显优于String
-     * 但是每次都是晴空的来开，一亿次才差0.6秒。
+     * 但是每次都是清空的来开，一亿次才差0.6秒。
      */
     public void StringBuilderVSString(){
         Long l1 = System.currentTimeMillis();
