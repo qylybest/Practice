@@ -1,4 +1,3 @@
-import com.javafx.tools.doclets.formats.html.SourceToHTMLConverter;
 import com.sun.tools.jdi.LinkedHashMap;
 
 import java.util.ArrayList;
