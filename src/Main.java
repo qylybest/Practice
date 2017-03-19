@@ -1,3 +1,4 @@
+import com.javafx.tools.doclets.formats.html.SourceToHTMLConverter;
 import com.sun.tools.jdi.LinkedHashMap;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Main {
 //        test.findComplement(5);
 //        String[] words = {"Hello", "Alaska", "Dad", "Peace"};
 //        System.out.println(test.findWords(words));
+        test.StringBuilderVSString();
     }
 
     /**
@@ -519,6 +521,40 @@ public class Main {
         while (insertPos < nums.length) {
             nums[insertPos++] = 0;
         }
+    }
+
+    /**
+     * 通过对string和StringBuilder类进行1亿次测试得到：
+     * 不清空变量，连续追加一亿次，StringBuilder会明显优于String
+     * 但是每次都是晴空的来开，一亿次才差0.6秒。
+     */
+    public void StringBuilderVSString(){
+        Long l1 = System.currentTimeMillis();
+        int index = 0;
+        int end = 10000 * 10000;
+        String s = "";
+        StringBuilder sb =new StringBuilder();
+        for(int i = 0; i < end; i++){
+            s += "1";
+//            sb.append("1");
+            if(i%(end/10) == 0){
+                System.out.println("doing index : " + i);
+            }
+            s = "";
+        }
+        Long l2 = System.currentTimeMillis();
+        for(int i = 0; i < end; i++){
+//            s += "1";
+            sb.append("1");
+            if(i%(end/10) == 0){
+                System.out.println("doing index : " + i);
+            }
+            sb.delete(0,sb.length());
+        }
+        Long l3 = System.currentTimeMillis();
+
+        System.out.println("String time : " + (l2 - l1));
+        System.out.println("StringBuilder time : " + (l3 - l2));
     }
 
 }
