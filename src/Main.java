@@ -1,10 +1,12 @@
 import com.sun.tools.jdi.LinkedHashMap;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Created by eric on 2017/2/23.
@@ -17,8 +19,10 @@ public class Main {
 //        test.findComplement(5);
 //        String[] words = {"Hello", "Alaska", "Dad", "Peace"};
 //        System.out.println(test.findWords(words));
-        test.StringBuilderVSString();
+//        test.StringBuilderVSString();
+        test.test();
     }
+
 
     /**
      * 逆序输出str
@@ -555,5 +559,37 @@ public class Main {
         System.out.println("String time : " + (l2 - l1));
         System.out.println("StringBuilder time : " + (l3 - l2));
     }
+
+
+
+    public void test(){
+        Map map = new HashMap();
+        int[] a = {};
+        System.out.println(a.length);
+    }
+
+    /**
+     * Given a string, sort it in decreasing order based on the frequency of characters.
+     * @param s
+     * @return
+     */
+    public String frequencySort(String s) {
+        if(null == s || s.isEmpty()){
+            return "";
+        }
+        String str = "";
+        Map<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            Character c = s.charAt(i);
+            Integer k = map.get(s.charAt(i));
+            if(null == k){
+                k = 0;
+            }
+            map.put(c,k+1);
+        }
+
+        return str;
+    }
+
 
 }
