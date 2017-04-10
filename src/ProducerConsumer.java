@@ -47,6 +47,7 @@ class Chef implements Runnable{
     }
 }
 
+
 class Customer implements Runnable {
     private final Table table;
 
@@ -62,6 +63,8 @@ class Customer implements Runnable {
     }
 }
 
+//消费和生产的对象, 食物类,这是我们的核心类, 同步代码在该类中体现.
+//发现生产线程，消费线程里是不写同步代码的。
 class Table {
     static int index = 0;
     int MAX = 10;
