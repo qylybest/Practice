@@ -1,3 +1,5 @@
+package multiprocess;
+
 /**
  * Created by yaosu on 2017/4/9 0009.
  */

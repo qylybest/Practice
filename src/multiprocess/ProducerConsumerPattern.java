@@ -1,3 +1,5 @@
+package multiprocess;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -19,6 +21,7 @@ public class ProducerConsumerPattern {
         //Starting producer and Consumer thread
         prodThread.start();
         consThread.start();
+
     }
 
 }
