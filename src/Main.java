@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
  * Created by eric on 2017/2/23.
  */
 public class Main {
-	public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
 		Main test = new Main();
 //        test.reverse("I am a coder");
@@ -19,6 +20,18 @@ public class Main {
 //        test.StringBuilderVSString();
 		test.test();
 	}
+
+
+
+    public void test() throws Exception{
+        Map map = new HashMap();
+        int[] a = {};
+        System.out.println(a.length);
+        Double d = Double.parseDouble(".1");
+        System.out.println(d);
+        BigDecimal b = new BigDecimal(d);
+
+    }
 
 
 	/**
@@ -559,31 +572,25 @@ public class Main {
 
 
 
-	public void test(){
-		Map map = new HashMap();
-		int[] a = {};
-		System.out.println(a.length);
-	}
-
-	/**
-	 * Given a string, sort it in decreasing order based on the frequency of characters.
-	 * @param s
-	 * @return
-	 */
-	public String frequencySort(String s) {
-		if(null == s || s.isEmpty()){
-			return "";
-		}
-		String str = "";
-		Map<Character,Integer> map = new HashMap<>();
-		for(int i=0;i<s.length();i++){
-			Character c = s.charAt(i);
-			Integer k = map.get(s.charAt(i));
-			if(null == k){
-				k = 0;
-			}
-			map.put(c,k+1);
-		}
+    /**
+     * Given a string, sort it in decreasing order based on the frequency of characters.
+     * @param s
+     * @return
+     */
+    public String frequencySort(String s) {
+        if(null == s || s.isEmpty()){
+            return "";
+        }
+        String str = "";
+        Map<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            Character c = s.charAt(i);
+            Integer k = map.get(s.charAt(i));
+            if(null == k){
+                k = 0;
+            }
+            map.put(c,k+1);
+        }
 
 		return str;
 	}
