@@ -543,7 +543,7 @@ public class Main {
 	 * 不清空变量，连续追加一亿次，StringBuilder会明显优于String
 	 * 但是每次都是清空的来开，一亿次才差0.6秒。
 	 */
-	public void StringBuilderVSString(){
+	public void stringBuilderVSString(){
 		Long l1 = System.currentTimeMillis();
 		int index = 0;
 		int end = 10000 * 10000;
@@ -624,6 +624,29 @@ public class Main {
 			}
 	   }
 	   return result;
+	}
+
+	/**
+	 * Given a non-empty array of integers, return the k most frequent elements.
+	 For example,
+	 Given [1,1,1,2,2,3] and k = 2, return [1,2].
+	 Note:
+	 You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
+	 Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+	 * @param nums
+	 * @param k
+	 * @return
+	 */
+	public List<Integer> topKFrequent(int[] nums, int k) {
+		//key:值   value:出现的次数
+		Map<Integer,Integer> map = new HashMap<>();
+		for(int index = 0; index < nums.length; index++){
+			int alreadyNum = map.get(nums[index]) == null ? 0 : map.get(nums[index]);
+			map.put(nums[index],alreadyNum+1);
+		}
+		List<Integer> list = new LinkedList<>();
+		return list;
+
 	}
 
 }
