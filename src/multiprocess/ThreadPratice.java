@@ -1,8 +1,5 @@
 package multiprocess;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  * Created by eric on 2017/4/2.
  */
@@ -12,10 +9,9 @@ public class ThreadPratice {
 		new Thread(p).start();
 		new Thread(p).start();
 		new Thread(p).start();
-//        new Prin2().start();
-//        new Prin2().start();
-//        new Prin2().start();
-        ExecutorService pool = Executors.newFixedThreadPool(2);
+        new Prin2().start();
+        new Prin2().start();
+        new Prin2().start();
     }
 
 
@@ -25,11 +21,12 @@ public class ThreadPratice {
 
 class Prin implements Runnable{
 	private int i = 10;
+
 	public void run(){
 		while(i>0){
 //            try{
 //                Thread.sleep(200);
-				System.out.println("还剩"+i--);
+				System.out.println("Prin1还剩"+i--);
 //            }catch(InterruptedException e){
 
 //            }
@@ -43,7 +40,7 @@ class Prin2 extends Thread{
 		while(i>0){
 			try{
 				Thread.sleep(200);
-				System.out.println("还剩"+i--);
+				System.out.println("Prin2还剩"+i--);
 			}catch(InterruptedException e){
 
 			}
