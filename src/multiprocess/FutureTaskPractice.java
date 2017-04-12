@@ -34,6 +34,8 @@ public class FutureTaskPractice {
             e.printStackTrace();
         }
 
+        executorService.shutdown();
+
     }
 }
 
