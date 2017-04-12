@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.io.Console;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,8 @@ public class Main {
 //        String[] words = {"Hello", "Alaska", "Dad", "Peace"};
 //        System.out.println(test.findWords(words));
 //        test.StringBuilderVSString();
-		test.test();
+//		test.test();
+		test.readString();
 	}
 
 
@@ -647,6 +649,25 @@ public class Main {
 		List<Integer> list = new LinkedList<>();
 		return list;
 
+	}
+
+	public void readString() {
+		String str = readString6("请输入字符串：");
+		System.out.println("readString6 方法的输入：" + str);
+	}
+
+	/**
+	 * 使用控制台类（Console）从控制台中读取字符串<br/>
+	 * 适用于JDK 1.6或以后的版本
+	 * @param prompt 提示信息
+	 * @return 输入的字符串
+	 */
+	private String readString6(String prompt) {
+		Console console = System.console();
+		if (console == null) {
+			throw new IllegalStateException("不能使用控制台");
+		}
+		return console.readLine(prompt);
 	}
 
 }
