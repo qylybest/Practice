@@ -102,7 +102,7 @@ class Table {
             }
         }
         index --;
-        System.out.println(index + "位置上被吃了新的美食！");
+        System.out.println(index + " 位置上被吃了新的美食！");
 //        try {
 //            Thread.sleep(0);
 //        } catch (InterruptedException e) {
