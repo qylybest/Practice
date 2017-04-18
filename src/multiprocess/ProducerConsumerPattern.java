@@ -39,7 +39,7 @@ class Producer implements Runnable {
     public void run() {
         for(int i=0; i<10; i++){
             try {
-                System.out.println("-- Produced: " + i);
+                System.out.println(Thread.currentThread().getName() + "-- Produced: " + i);
                 Thread.sleep(1);
                 sharedQueue.put(i);
             } catch (InterruptedException ex) {
@@ -63,7 +63,7 @@ class Consumer implements Runnable{
     public void run() {
         while(true){
             try {
-                System.out.println("Consumed: "+ sharedQueue.take());
+                System.out.println(Thread.currentThread().getName() + " Consumed: "+ sharedQueue.take());
             } catch (InterruptedException ex) {
                 System.out.println(ex);
             }
