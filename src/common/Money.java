@@ -35,15 +35,6 @@ import java.util.Currency;
  * <li>Money类实现了Serializable接口，支持作为远程调用的参数和返回值。
  * <li>Money类实现了equals和hashCode方法。
  * </ul>
- * <p/>
- * TODO: 必须处理运算中的溢出情形
- * <p/>
- * Copyright    Vipshop
- * <pre>
- *     author      XueQi
- *     date        15/11/4
- *     email       qi01.xue@vipshop.com
- * </pre>
  */
 public class Money implements Serializable, Comparable {
     /**
