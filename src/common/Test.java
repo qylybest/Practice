@@ -5,9 +5,23 @@ package common;
  */
 public class Test {
     public static void main(String[] args) {
-        Money money = new Money();
+        Test test = new Test();
 
-        money.setAmount(null);
-        System.out.println(money.getCent());
+
+        Integer result = test.fu(3);
+        System.out.println(result);
+    }
+
+    public Integer fu(Integer cap){
+        int MAX = 1 << 30;
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+
+        return (n<0)? 1 : (n>=MAX)? MAX:n+1;
+
     }
 }
