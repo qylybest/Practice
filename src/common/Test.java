@@ -6,10 +6,14 @@ package common;
 public class Test {
     public static void main(String[] args) {
         Test test = new Test();
-
-
-        Integer result = test.fu(3);
+        Integer result = test.f(108);
         System.out.println(result);
+    }
+
+    static int f(int n){
+        if(n == 1) return 0;
+        if(n == 2) return 2;
+        return f(n-1) + f(n / 2 );
     }
 
     public Integer fu(Integer cap){
@@ -23,5 +27,9 @@ public class Test {
 
         return (n<0)? 1 : (n>=MAX)? MAX:n+1;
 
+
+
     }
+
+
 }
