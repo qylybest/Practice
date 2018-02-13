@@ -22,7 +22,7 @@ public class ShellSort {
         int step = len;
 
         while(step > 0){
-            // 0~step-1是每个分数组的头，对每个分数组进行直接插入排序
+            // 0~step-1是每个分数组的头，对每个分数组进行排序
             for(int i = step; i <= len-1; i++){
                 int j = i;
                 while(j >= step && a[j] < a[j-step] ){
